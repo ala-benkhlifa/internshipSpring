@@ -1,6 +1,5 @@
 package tn.talan.internship.entities;
 
-import jdk.jfr.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
