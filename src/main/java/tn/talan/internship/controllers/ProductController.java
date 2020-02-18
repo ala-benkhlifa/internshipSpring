@@ -30,22 +30,22 @@ public class ProductController {
 
     //search for a product by id
     @GetMapping("/products/{id}")
-    public ResponseEntity<Product> getEmployeeById(@PathVariable(value = "id") Long productId)
+    public ResponseEntity<Product> getProductById(@PathVariable(value = "id") Long productId)
             throws ResourceNotFoundException {
         Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + productId));
+                .orElseThrow(() -> new ResourceNotFoundException("product not found for this id :: " + productId));
         return ResponseEntity.ok().body(product);
     }
 
 
     @GetMapping("/products/{name}")
-    public List<Product> findByName(@PathVariable String name){
+    public List<Product> findByName(String name){
         return productRepository.findByName(name);
 
     }
 
     @GetMapping("/products/{price}")
-    public List<Product> findByPrice(@PathVariable Double price){
+    public List<Product> findByPrice(Double price){
         return productRepository.findByPrice(price);
 
     }
@@ -59,11 +59,11 @@ public class ProductController {
     }
 
     //updating a product
-    @PutMapping("/employees/{id}")
-    public ResponseEntity<Product> updateEmployee(@PathVariable(value = "id") Long productId,
+    @PutMapping("/products/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable(value = "id") Long productId,
                                                   @Valid @RequestBody Product productDetails) throws ResourceNotFoundException {
         Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + productId));
+                .orElseThrow(() -> new ResourceNotFoundException("product not found for this id :: " + productId));
 
         product.setName(productDetails.getName());
         product.setPrice(productDetails.getPrice());
