@@ -16,4 +16,5 @@ public class Product {
     private Long id;
     private Double price;
     private Double sellPrice;
+    private Double quantity;
 }
