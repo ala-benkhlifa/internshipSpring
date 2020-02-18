@@ -1,13 +1,13 @@
 package tn.talan.internship.enums;
 
-public enum Category {
+public enum CategoryEnum {
     SANTE("Santé"),
     HYGIENE("Hygiéne"),
     ALIMENTATION("Alimentation");
 
     private String categoryName;
 
-    Category(String categoryName) {
+    CategoryEnum(String categoryName) {
         this.categoryName = categoryName;
     }
 
