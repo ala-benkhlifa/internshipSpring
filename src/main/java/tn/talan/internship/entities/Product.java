@@ -14,4 +14,5 @@ public class Product {
     @Id
     private Long id;
     private Double price;
+    private Double sellPrice;
 }
