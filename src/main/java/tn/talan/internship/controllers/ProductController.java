@@ -33,19 +33,16 @@ public class ProductController {
 
     //search for a product by id
     @GetMapping("/products/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable(value = "id") Long productId)
+    public Product getProductById(@PathVariable(value = "id") Long productId)
             throws ResourceNotFoundException {
-        Product product = productRepository.findById(productId)
+        return productRepository.findById(productId)
                 .orElseThrow(() -> new ResourceNotFoundException("product not found for this id :: " + productId));
-        return ResponseEntity.ok().body(product);
     }
-
 
     @GetMapping("/product/name/{name}")
     @ResponseBody
     public List<Product> findByName(@PathVariable("name") String name){
         return productRepository.findByName(name);
-
     }
 
     @GetMapping("/product/price/{price}")
