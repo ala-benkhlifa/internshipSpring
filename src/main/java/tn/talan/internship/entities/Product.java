@@ -16,13 +16,15 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product implements Serializable {
-    public final Long S = 1L;
+
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id ;
     private String name;
     private Double price;
     private Double sellPrice;
-    private int qte_stock;
-    private CategoryEnum categories;
+    private int quantity;
+    private CategoryEnum category;
 }

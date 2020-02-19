@@ -1,6 +1,7 @@
 package tn.talan.internship.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -45,32 +46,24 @@ public class ProductController {
     }
 
     @GetMapping("/products/{price}")
-    public List<Product> findByPrice(Double price){
+    public List<Product> findByPrice(@PathVariable("price") Double price) {
         return productRepository.findByPrice(price);
-
     }
 
 
     //delete a product
-    @RequestMapping(value = "/delete/{id}",method = RequestMethod.POST)
-    public  List<Product> remove(@PathVariable Long id){
-        productRepository.deleteById(id);
-        return productRepository.findAll();
+    @PostMapping("/delete/{id}")
+    public ResponseEntity remove(@PathVariable Long id) {
+        if (productRepository.existsById(id)) {
+            productRepository.deleteById(id);
+            return ResponseEntity.ok("Product with id = " + id + " has been deleted");
+        } else
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product with id = " + id + " was not found!");
     }
 
     //updating a product
     @PutMapping("/products/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable(value = "id") Long productId,
-                                                  @Valid @RequestBody Product productDetails) throws ResourceNotFoundException {
-        Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new ResourceNotFoundException("product not found for this id :: " + productId));
-
-        product.setName(productDetails.getName());
-        product.setPrice(productDetails.getPrice());
-        product.setSellPrice(productDetails.getSellPrice());
-        product.setQte_stock(productDetails.getQte_stock());
-        product.setCategories(productDetails.getCategories());
-        final Product updatedProduct = productRepository.save(product);
-        return ResponseEntity.ok(updatedProduct);
+    public Product updateProduct(@Valid @RequestBody Product product) throws ResourceNotFoundException {
+        return productRepository.save(product);
     }
 }
