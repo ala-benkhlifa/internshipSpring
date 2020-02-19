@@ -41,13 +41,15 @@ public class ProductController {
     }
 
 
-    @GetMapping("/products/{name}")
-    public List<Product> findByName(String name){
+    @GetMapping("/product/name/{name}")
+    @ResponseBody
+    public List<Product> findByName(@PathVariable("name") String name){
         return productRepository.findByName(name);
 
     }
 
-    @GetMapping("/products/{price}")
+    @GetMapping("/product/price/{price}")
+    @ResponseBody
     public List<Product> findByPrice(@PathVariable("price") Double price) {
         return productRepository.findByPrice(price);
     }
