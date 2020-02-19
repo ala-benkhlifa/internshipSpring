@@ -2,8 +2,8 @@ package tn.talan.internship.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import tn.talan.internship.entities.Vente;
+import tn.talan.internship.entities.Sale;
 
 @Repository
-public interface VenteRepository extends JpaRepository<Vente,Long> {
+public interface SaleRepository extends JpaRepository<Sale,Long> {
 }

@@ -22,6 +22,8 @@ public class ProductController {
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
+
+
     //create a product
     @ResponseBody
     @PostMapping("/product")

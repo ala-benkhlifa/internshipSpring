@@ -15,14 +15,15 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Vente implements Serializable  {
+public class Sale implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idVente ;
+    private Long idVente;
     private Date dateVente;
-    private int qteVente ;
+    private int qteVente;
+
 
 }
