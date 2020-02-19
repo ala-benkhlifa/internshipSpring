@@ -48,7 +48,7 @@ public class VenteController {
 
     //delete a sale
     @DeleteMapping("/sale/{idVente}")
-    public ResponseEntity removeSale (@PathVariable Long idVente) {
+    public ResponseEntity removeSale (@PathVariable("idVente") Long idVente) {
         if (saleRepository.existsById(idVente)) {
             saleRepository.deleteById(idVente);
             return ResponseEntity.ok("sale with id = " + idVente + " has been deleted");
@@ -56,14 +56,12 @@ public class VenteController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("sale with id = " + idVente + " was not found!");
     }
 
-
     //search for a product by id
     @GetMapping("/sale/{idVente}")
-    public ResponseEntity<Sale> getSaleById(@PathVariable(value = "idVente") Long idVente)
+    public Sale getSaleById(@PathVariable("idVente") Long idVente)
             throws ResourceNotFoundException {
-        Sale sale = saleRepository.findById(idVente)
+        return saleRepository.findById(idVente)
                 .orElseThrow(() -> new ResourceNotFoundException("product not found for this id : " + idVente));
-        return ResponseEntity.ok().body(sale);
     }
 
 }
