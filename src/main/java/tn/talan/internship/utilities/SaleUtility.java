@@ -1,8 +1,7 @@
 package tn.talan.internship.utilities;
 
-import org.modelmapper.ModelMapper;
 import tn.talan.internship.entities.Sale;
-import tn.talan.internship.entities.SaleDTO;
+import tn.talan.internship.dto.SaleDTO;
 
 public class SaleUtility {
 

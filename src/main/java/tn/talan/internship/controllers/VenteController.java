@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import tn.talan.internship.entities.Sale;
-import tn.talan.internship.entities.SaleDTO;
+import tn.talan.internship.dto.SaleDTO;
 import tn.talan.internship.exception.ResourceNotFoundException;
 import tn.talan.internship.services.ISale;
 
