@@ -8,6 +8,7 @@ public class SaleUtility {
     public SaleUtility() {
     }
 
+
     public static SaleDTO convertToDto(Sale sale) {
         SaleDTO saleDTO =new SaleDTO();
         saleDTO.setId(sale.getId());

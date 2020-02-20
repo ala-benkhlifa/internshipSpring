@@ -36,8 +36,9 @@ public class SaleServiceImpl implements ISale {
     }
 
     @Override
-    public Sale save(Sale Sale) {
-        return saleRepository.save(Sale);
+    public Sale save(SaleDTO saleDTO) {
+      Sale sale =  SaleUtility.convertToEntity(saleDTO);
+        return saleRepository.save(sale);
     }
 
     @Override
@@ -49,9 +50,11 @@ public class SaleServiceImpl implements ISale {
         return false;
     }
 
+
+
     @Override
-    public Optional<Sale> findById(Long idVente) {
-        return saleRepository.findById(idVente);
+    public Optional<SaleDTO> findById(Long idVente) {
+        return saleRepository.findById(idVente).map(SaleUtility::convertToDto);
     }
 
 }

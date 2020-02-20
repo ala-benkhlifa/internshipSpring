@@ -3,7 +3,6 @@ package tn.talan.internship.controllers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -22,6 +21,7 @@ public class VenteController {
 
     // Interface pour assurer un faible couplage
     @Autowired
+    @Qualifier("saleService")
     private ISale service;
 
     //get all ventes
@@ -35,12 +35,10 @@ public class VenteController {
     //create and update a sale
     @ResponseBody
     @RequestMapping(value = "/sale" , method = {RequestMethod.POST, RequestMethod.PUT})
-    public Sale addSale(@RequestBody Sale Sale) {
-        return service.save(Sale);
+    public Sale addSale(@RequestBody SaleDTO sale) {
+
+        return service.save(sale);
     }
-
-
-
 
 
     //delete a sale
@@ -53,13 +51,13 @@ public class VenteController {
     }
 
 
-    //search for a product by id
+    //search for a sale by id
     @GetMapping("/sale/{idVente}")
-    public ResponseEntity<Sale> getSaleById(@PathVariable(value = "idVente") Long idVente)
+    public ResponseEntity<SaleDTO> getSaleById(@PathVariable(value = "idVente") Long idVente)
             throws ResourceNotFoundException {
-        Sale sale = service.findById(idVente)
-                .orElseThrow(() -> new ResourceNotFoundException("product not found for this id : " + idVente));
-        return ResponseEntity.ok().body(sale);
+        SaleDTO saleDTO = service.findById(idVente)
+                .orElseThrow(() -> new ResourceNotFoundException("provider not found for this id : " + idVente));
+        return ResponseEntity.ok().body(saleDTO);
     }
 
 }

@@ -9,8 +9,7 @@ import java.util.Optional;
 public interface ISale {
 
     List<SaleDTO> findAll();
-    Sale save(Sale Sale);
+    Sale save(SaleDTO SaleDTO);
     boolean deleteById (Long idVente);
-
-    Optional<Sale> findById(Long idVente);
+    Optional<SaleDTO> findById(Long idVente);
 }
