@@ -6,4 +6,6 @@ import tn.talan.internship.entities.Sale;
 
 @Repository
 public interface SaleRepository extends JpaRepository<Sale,Long> {
+
+
 }

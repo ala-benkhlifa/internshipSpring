@@ -27,7 +27,7 @@ public class Sale implements Serializable {
     private Long quantity;
 
     @ManyToOne
-    @JoinColumn(name = "idProduct", nullable = false)
+    @JoinColumn(name = "idProduct")
     private Product product;
 
 }
