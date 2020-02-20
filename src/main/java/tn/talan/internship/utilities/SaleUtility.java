@@ -9,21 +9,21 @@ public class SaleUtility {
     }
 
     public static SaleDTO convertToDto(Sale sale) {
-        SaleDTO productDTO =new SaleDTO();
-        productDTO.setId(sale.getId());
-        productDTO.setDate(sale.getDate());
-        productDTO.setQuantity(sale.getQuantity());
-        productDTO.setProduct(sale.getProduct());
-        return productDTO;
+        SaleDTO saleDTO =new SaleDTO();
+        saleDTO.setId(sale.getId());
+        saleDTO.setDate(sale.getDate());
+        saleDTO.setQuantity(sale.getQuantity());
+        saleDTO.setProduct(sale.getProduct());
+        return saleDTO;
     }
 
     public static Sale convertToEntity(SaleDTO saleDTO) {
-        Sale product =new Sale();
-        product.setId(saleDTO.getId());
-        product.setDate(saleDTO.getDate());
-        product.setQuantity(saleDTO.getQuantity());
-        product.setProduct(saleDTO.getProduct());
-        return product;
+        Sale sale =new Sale();
+        sale.setId(saleDTO.getId());
+        sale.setDate(saleDTO.getDate());
+        sale.setQuantity(saleDTO.getQuantity());
+        sale.setProduct(saleDTO.getProduct());
+        return sale;
     }
 
 

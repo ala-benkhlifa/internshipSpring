@@ -2,6 +2,7 @@ package tn.talan.internship.services.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import tn.talan.internship.entities.Sale;
 import tn.talan.internship.dto.SaleDTO;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service("saleService")
+@Primary
 public class SaleServiceImpl implements ISale {
 
     private final SaleRepository saleRepository;

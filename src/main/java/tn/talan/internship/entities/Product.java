@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import tn.talan.internship.enums.CategoryEnum;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -25,6 +22,9 @@ public class Product implements Serializable {
     private String name;
     private Double price;
     private Double sellPrice;
-    private int quantity;
+    private Long quantity;
     private CategoryEnum category;
+    @ManyToOne
+    @JoinColumn(name = "idProvider")
+    private Provider provider;
 }

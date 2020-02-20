@@ -3,6 +3,7 @@ package tn.talan.internship.controllers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,6 @@ public class VenteController {
 
     // Interface pour assurer un faible couplage
     @Autowired
-    @Qualifier("saleService")
     private ISale service;
 
     //get all ventes
@@ -32,19 +32,15 @@ public class VenteController {
     }
 
 
-    //create a sale
+    //create and update a sale
     @ResponseBody
-    @PostMapping("/sale")
+    @RequestMapping(value = "/sale" , method = {RequestMethod.POST, RequestMethod.PUT})
     public Sale addSale(@RequestBody Sale Sale) {
         return service.save(Sale);
     }
 
 
-    //updating a sale
-    @PutMapping("/sale/{idVente}")
-    public Sale updateSale(@Valid @RequestBody Sale sale) throws ResourceNotFoundException {
-        return service.save(sale);
-    }
+
 
 
     //delete a sale
