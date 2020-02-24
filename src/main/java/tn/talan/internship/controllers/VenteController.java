@@ -12,7 +12,6 @@ import tn.talan.internship.dto.SaleDTO;
 import tn.talan.internship.exception.ResourceNotFoundException;
 import tn.talan.internship.services.ISale;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
