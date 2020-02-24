@@ -16,6 +16,10 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<sonar.projectKey>ala-benkhlifa_internshipSpring</sonar.projectKey>
+		<sonar.organization>ala-benkhlifa</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>a1063d00ce6ba9aa5fe576fb9444c3392c18a34f</sonar.login>
 	</properties>
 
 	<dependencies>
