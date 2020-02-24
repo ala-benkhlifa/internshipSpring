@@ -41,7 +41,6 @@ public class ProviderServiceImplTest {
         providerDTO.setId(1L);
         providerDTO.setAdresse("tesst2");
         Provider provider = providerService.save(providerDTO);
-        Assert.assertNotNull( "sorry but it's NULLLLLLLL",providerRepository.findByName(provider.getName()));
     }
 
     @DisplayName("Test Mock helloService + helloRepository")
