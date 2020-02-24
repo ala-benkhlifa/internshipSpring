@@ -29,5 +29,4 @@ public class Sale implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idProduct")
     private Product product;
-
 }

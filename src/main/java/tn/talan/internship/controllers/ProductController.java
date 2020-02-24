@@ -1,25 +1,20 @@
 package tn.talan.internship.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import tn.talan.internship.dto.ProductDTO;
-import tn.talan.internship.dto.SaleDTO;
 import tn.talan.internship.entities.Product;
-import tn.talan.internship.entities.Sale;
 import tn.talan.internship.exception.ResourceNotFoundException;
-import tn.talan.internship.repositories.ProductRepository;
 import tn.talan.internship.services.IProduct;
 
-import javax.validation.Valid;
 import java.util.List;
 
 
-
 @Controller
+@CrossOrigin("*")
 public class ProductController {
 
     @Autowired
@@ -29,14 +24,14 @@ public class ProductController {
     //get all ventes
     @ResponseBody
     @GetMapping("/products")
-    public List<ProductDTO>  getAllProducts() {
+    public List<ProductDTO> getAllProducts() {
         return service.findAll();
     }
 
 
     //create and update a sale
     @ResponseBody
-    @RequestMapping(value = "/product" , method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = "/product", method = {RequestMethod.POST, RequestMethod.PUT})
     public Product addProduct(@RequestBody Product product) {
         return service.save(product);
     }

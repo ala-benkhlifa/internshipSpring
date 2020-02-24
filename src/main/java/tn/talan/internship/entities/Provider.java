@@ -8,16 +8,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 public class Provider {
+
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
     private Long id;
+    @Size(min = 3, max = 20)
     private String name;
     private String adresse;
     private String domain;
+
 }

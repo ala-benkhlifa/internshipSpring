@@ -16,6 +16,7 @@ import java.util.List;
 
 
 @Controller
+@CrossOrigin("*")
 public class ProviderController {
 
     @Autowired
