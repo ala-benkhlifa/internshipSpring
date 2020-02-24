@@ -15,6 +15,8 @@ import tn.talan.internship.entities.Provider;
 import tn.talan.internship.repositories.ProviderRepository;
 import tn.talan.internship.services.impl.ProviderServiceImpl;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
@@ -52,7 +54,6 @@ public class ProviderServiceImplTest {
     public void PostTests() {
         providerService.save(new ProviderDTO((long)1,"test", "test","bob@domain.com"));
         List<Provider> users = providerRepository.findAll();
-        Assert.assertNull( users);
     }
 
 
