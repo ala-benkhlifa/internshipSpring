@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import tn.talan.internship.entities.Product;
 
-import javax.persistence.*;
 import java.util.Date;
 @Data
 @NoArgsConstructor

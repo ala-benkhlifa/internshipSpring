@@ -18,12 +18,19 @@ import java.util.stream.Collectors;
 @Service("providerService")
 public class ProviderServiceImpl implements IProvider {
 
-    private final ProviderRepository providerRepository;
+    public ProviderServiceImpl() {
+
+    }
+
+
+    private ProviderRepository providerRepository;
 
     @Autowired
     public ProviderServiceImpl(ProviderRepository ProviderServiceImpl, ProviderRepository providerRepository) {
         this.providerRepository = providerRepository;
     }
+
+
 
     @Override
     public List<ProviderDTO> findAll() {
@@ -56,4 +63,11 @@ public class ProviderServiceImpl implements IProvider {
     public Optional<ProviderDTO> findById(Long id) {
         return providerRepository.findById(id).map(ProviderUtility::convertToDto);
     }
+
+
+
+    public String get() {
+        return "hello my first Unit test you are beautiful";
+    }
+
 }

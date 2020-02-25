@@ -16,9 +16,18 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<sonar.projectKey>ala-benkhlifa_internshipSpring</sonar.projectKey>
+		<sonar.organization>ala-benkhlifa</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>a1063d00ce6ba9aa5fe576fb9444c3392c18a34f</sonar.login>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -55,6 +64,11 @@
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 			<version>2.3.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.5.2</version>
 		</dependency>
 	</dependencies>
 

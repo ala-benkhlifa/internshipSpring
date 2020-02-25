@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
+import tn.talan.internship.entities.Provider;
 import tn.talan.internship.services.impl.SaleServiceImpl;
 
 @RunWith(SpringRunner.class)
@@ -17,6 +18,8 @@ public class InternshipApplicationTests {
 
 	@Test
 	public void contextLoads() {
+
 	}
+
 
 }
