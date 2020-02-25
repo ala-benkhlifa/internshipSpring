@@ -6,9 +6,9 @@ import tn.talan.internship.entities.Product;
 import java.util.List;
 import java.util.Optional;
 
-public interface IProduct {
+public interface IProductService {
     List<ProductDTO> findAll();
-    Product save(Product product);
+    Product save(ProductDTO productDTO);
     boolean deleteById (Long id);
 
     Optional<ProductDTO> findById(Long id);
