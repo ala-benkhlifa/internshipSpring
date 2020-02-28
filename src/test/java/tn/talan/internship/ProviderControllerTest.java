@@ -68,7 +68,7 @@ public class ProviderControllerTest {
         MockHttpServletRequest request = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
         Mockito.when(Service.deleteById(15L)).thenReturn(true);
-        ResponseEntity<Object> responseEntity = providerController.removeProvider(1L);
+        ResponseEntity<Object> responseEntity = providerController.removeProvider(15L);
         assertThat(responseEntity.getStatusCodeValue()).isEqualTo(200);
 
     }
@@ -81,10 +81,10 @@ public class ProviderControllerTest {
 
         MockHttpServletRequest request = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
-        Mockito.when(Service.findById(1L)).thenReturn(Optional.of(provider));
+        Mockito.when(Service.findById(15L)).thenReturn(Optional.of(provider));
         ResponseEntity<ProviderDTO> responseEntity = null;
         try {
-            responseEntity = providerController.getProviderById(1L);
+            responseEntity = providerController.getProviderById(15L);
         } catch (ResourceNotFoundException e) {
             e.printStackTrace();
         }
