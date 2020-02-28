@@ -29,7 +29,6 @@ public class ProviderRepositoryTest {
     @Test
     public void GetAllProvider() {
         List<Provider> ProvidersBd = providerRepository.findAll();
-        System.out.println(ProvidersBd.get(3));
         assertThat(ProvidersBd.size()).isEqualTo(3);
     }
 
