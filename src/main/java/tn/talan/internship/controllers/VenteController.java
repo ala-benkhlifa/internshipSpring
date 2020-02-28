@@ -17,6 +17,7 @@ import java.util.List;
 
 @Controller
 @Slf4j
+@CrossOrigin("*")
 public class VenteController {
 
     // Interface pour assurer un faible couplage
@@ -35,7 +36,7 @@ public class VenteController {
     //create and update a sale
     @ResponseBody
     @RequestMapping(value = "/sale" , method = {RequestMethod.POST, RequestMethod.PUT})
-    public Sale addSale(@RequestBody SaleDTO sale) {
+    public SaleDTO addSale(@RequestBody SaleDTO sale) {
 
         return service.save(sale);
     }

@@ -42,9 +42,12 @@ public class ProviderServiceImpl implements IProvider {
     }
 
     @Override
-    public Provider save(ProviderDTO providerDTO) {
+    public ProviderDTO save(ProviderDTO providerDTO) {
         Provider provider = ProviderUtility.convertToEntity(providerDTO);
-        return providerRepository.save(provider);
+        Provider providerRepo  =providerRepository.save(provider);
+        return ProviderUtility.convertToDto(providerRepo);
+
+
 
     }
 
@@ -65,9 +68,5 @@ public class ProviderServiceImpl implements IProvider {
     }
 
 
-
-    public String get() {
-        return "hello my first Unit test you are beautiful";
-    }
 
 }

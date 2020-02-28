@@ -36,9 +36,11 @@ public class SaleServiceImpl implements ISale {
     }
 
     @Override
-    public Sale save(SaleDTO saleDTO) {
+    public SaleDTO save(SaleDTO saleDTO) {
       Sale sale =  SaleUtility.convertToEntity(saleDTO);
-        return saleRepository.save(sale);
+        Sale providerRepo  =saleRepository.save(sale);
+        return SaleUtility.convertToDto(providerRepo);
+
     }
 
     @Override

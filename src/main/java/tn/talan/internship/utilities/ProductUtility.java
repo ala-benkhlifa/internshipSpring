@@ -13,6 +13,7 @@ public class ProductUtility {
                 productDTO.setName(product.getName());
                 productDTO.setQuantity(product.getQuantity());
                 productDTO.setSellPrice(product.getSellPrice());
+                productDTO.setCategory(product.getCategory());
                 return  productDTO;
     }
 
@@ -22,6 +23,8 @@ public class ProductUtility {
         product.setName(productDTO.getName());
         product.setQuantity(productDTO.getQuantity());
         product.setSellPrice(productDTO.getSellPrice());
+        product.setCategory(productDTO.getCategory());
+
         return  product;
     }
 

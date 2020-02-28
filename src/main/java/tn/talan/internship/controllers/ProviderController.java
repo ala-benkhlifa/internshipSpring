@@ -33,9 +33,9 @@ public class ProviderController {
     //create and update a provider
     @ResponseBody
     @RequestMapping(value = "/provider" , method = {RequestMethod.POST, RequestMethod.PUT})
-    public Provider addProvider(@RequestBody ProviderDTO provider) {
+    public ProviderDTO addProvider(@RequestBody ProviderDTO providerDTO) {
 
-        return service.save(provider);
+        return service.save(providerDTO);
     }
 
 

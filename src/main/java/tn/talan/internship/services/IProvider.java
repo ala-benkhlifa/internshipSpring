@@ -11,7 +11,7 @@ public interface IProvider {
 
     List<ProviderDTO> findAll();
 
-    Provider save(ProviderDTO providerDTO);
+    ProviderDTO save(ProviderDTO providerDTO);
 
     boolean deleteById(Long id);
 
