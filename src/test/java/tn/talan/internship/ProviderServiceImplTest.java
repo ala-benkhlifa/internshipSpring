@@ -36,9 +36,9 @@ public class ProviderServiceImplTest {
 
     @Test
     public void PostProviderTest() {
-        Provider provider = new Provider(3L, "Talan", "charguia", "développement");
+        Provider provider = new Provider(17L, "Talan", "charguia", "développement");
 
-        ProviderDTO providerDTO = new ProviderDTO(3L, "Talan", "charguia", "développement");
+        ProviderDTO providerDTO = new ProviderDTO(17L, "Talan", "charguia", "développement");
         Mockito.when(providerRepository.save(Mockito.any())).thenReturn(provider);
         ProviderDTO providerDTo = providerService.save(providerDTO);
         Assertions.assertNotNull(providerDTo);
@@ -50,8 +50,8 @@ public class ProviderServiceImplTest {
         List<Provider> ListeProviders = new ArrayList<>();
 
         Mockito.when(providerRepository.findAll()).thenReturn(ListeProviders);
-        Provider providerOne = new Provider(1L, "Nabeul", "'informatique'", "'asus'");
-        Provider providerTow = new Provider(2L, "'Manouba'", "'informatique'", "'HP'");
+        Provider providerOne = new Provider(15L, "Nabeul", "'informatique'", "'asus'");
+        Provider providerTow = new Provider(16L, "'Manouba'", "'informatique'", "'HP'");
         ListeProviders.add(providerOne);
         ListeProviders.add(providerTow);
 
@@ -63,17 +63,17 @@ public class ProviderServiceImplTest {
 
     @Test
     public void deleteByIdTest() {
-        Provider provider = new Provider(1L, "Nabeul", "'informatique'", "'asus'");
-        Mockito.when(providerRepository.existsById(1L)).thenReturn(true);
-        assertTrue(providerRepository.existsById(1L));
+        Provider provider = new Provider(15L, "Nabeul", "'informatique'", "'asus'");
+        Mockito.when(providerRepository.existsById(15L)).thenReturn(true);
+        assertTrue(providerRepository.existsById(15L));
     }
 
 
     @Test
     public void findByIdTest() {
-        Provider  provider = new Provider (1L, "Nabeul", "'informatique'", "'asus'");
-        Mockito.when(providerRepository.findById(1L)).thenReturn(Optional.of(provider));
-        Assertions.assertNotNull(providerService.findById(1L));
+        Provider  provider = new Provider (15L, "Nabeul", "'informatique'", "'asus'");
+        Mockito.when(providerRepository.findById(15L)).thenReturn(Optional.of(provider));
+        Assertions.assertNotNull(providerService.findById(15L));
 
     }
 

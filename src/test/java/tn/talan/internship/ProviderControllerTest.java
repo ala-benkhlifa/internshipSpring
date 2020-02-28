@@ -42,8 +42,8 @@ public class ProviderControllerTest {
         List<ProviderDTO> ListeProviders = new ArrayList<>();
 
         Mockito.when(Service.findAll()).thenReturn(ListeProviders);
-        ProviderDTO providerOne = new ProviderDTO(1L, "Nabeul", "'informatique'", "'asus'");
-        ProviderDTO providerTow = new ProviderDTO(2L, "'Manouba'", "'informatique'", "'HP'");
+        ProviderDTO providerOne = new ProviderDTO(15L, "Nabeul", "'informatique'", "'asus'");
+        ProviderDTO providerTow = new ProviderDTO(16L, "'Manouba'", "'informatique'", "'HP'");
         ListeProviders.add(providerOne);
         ListeProviders.add(providerTow);
 
@@ -54,9 +54,9 @@ public class ProviderControllerTest {
 
     @Test
     public void addProviderTest() {
-        ProviderDTO provider = new ProviderDTO(3L, "Talan", "charguia", "développement");
+        ProviderDTO provider = new ProviderDTO(17L, "Talan", "charguia", "développement");
         Mockito.when(Service.save(Mockito.any())).thenReturn(provider);
-        ProviderDTO providerDTO = new ProviderDTO(3L, "Talan", "charguia", "développement");
+        ProviderDTO providerDTO = new ProviderDTO(17L, "Talan", "charguia", "développement");
         ProviderDTO providerDB = providerController.addProvider(providerDTO);
         Assertions.assertNotNull(providerDB);
 
@@ -67,7 +67,7 @@ public class ProviderControllerTest {
 
         MockHttpServletRequest request = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
-        Mockito.when(Service.deleteById(1L)).thenReturn(true);
+        Mockito.when(Service.deleteById(15L)).thenReturn(true);
         ResponseEntity<Object> responseEntity = providerController.removeProvider(1L);
         assertThat(responseEntity.getStatusCodeValue()).isEqualTo(200);
 

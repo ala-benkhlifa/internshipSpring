@@ -33,7 +33,7 @@ public class ProviderRepositoryTest {
     }
 
     @Test
-    public void PostProviderTest() {
+    public void saveTest() {
         Provider NewProvider = new Provider();
         NewProvider.setName("Nokia");
         NewProvider.setDomain("phones");
@@ -45,15 +45,15 @@ public class ProviderRepositoryTest {
     }
 
     @Test
-    public void GetProviderByid() {
-        Provider getproviderDb = providerRepository.findById(1L).orElse(null);
+    public void findByIdTest() {
+        Provider getproviderDb = providerRepository.findById(15L).orElse(null);
         Assertions.assertNotNull(getproviderDb);
     }
 
     @Test
-    public void DeleteProviderByid() {
-        providerRepository.deleteById(1L);
-        Provider getproviderDb = providerRepository.findById(1L).orElse(null);
+    public void deleteByIdTest() {
+        providerRepository.deleteById(15L);
+        Provider getproviderDb = providerRepository.findById(15L).orElse(null);
         Assertions.assertNull(getproviderDb);
     }
 
@@ -62,7 +62,7 @@ public class ProviderRepositoryTest {
         Provider NewProvider = new Provider();
         NewProvider.setName("Nokia");
         NewProvider.setDomain("phones");
-        NewProvider.setId(1L);
+        NewProvider.setId(15L);
         NewProvider.setAdresse("Tunis");
         Provider provider = providerRepository.save(NewProvider);
         Provider getproviderDb = providerRepository.findById(provider.getId()).orElse(null);
